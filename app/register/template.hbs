@@ -1,0 +1,10 @@
+<form>
+  <div class="form-group">
+    <label>Register new user:</label>
+    {{input value=name class='form-control'}}
+  </div>
+  <button class='btn btn-primary' {{action 'addNew'}}>Add</button>
+</form>
+<div class="col-md-12">
+  {{message}}
+</div>
