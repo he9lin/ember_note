@@ -13,7 +13,13 @@
 
     <div class="collapse navbar-collapse" id="site-nav">
       <ul class="nav navbar-nav">
-        <li>{{#link-to 'register'}}register{{/link-to}}</li>
+        {{#if user}}
+          <p class="navbar-text">Hello, {{user.name}}</p>
+        {{/if}}
+        {{#unless user}}
+          <li>{{#link-to 'register'}}register{{/link-to}}</li>
+          <li>{{#link-to 'login'}}login{{/link-to}}</li>
+        {{/unless}}
       </ul>
     </div>
   </div>
