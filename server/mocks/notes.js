@@ -6,7 +6,7 @@ module.exports = function(app) {
   var bodyParser = require('body-parser');
   app.use(bodyParser.json());
   var nedb = require('nedb');
-  var noteDB = new nedb({ filename : 'notes', autoload: true});
+  var noteDB = new nedb({ filename : 'db/notes', autoload: true});
 
   notesRouter.get('/', function(req, res) {
     noteDB.find(req.query).exec(function(error,notes) {
