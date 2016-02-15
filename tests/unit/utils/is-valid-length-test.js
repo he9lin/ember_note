@@ -5,6 +5,6 @@ module('Unit | Utility | is valid length');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  let result = isValidLength();
+  let result = isValidLength("abc", 1, 5);
   assert.ok(result);
 });

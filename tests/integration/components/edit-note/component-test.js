@@ -1,25 +1,50 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
+import {
+  moduleForComponent,
+  test
+} from 'ember-qunit';
 
-moduleForComponent('edit-note', 'Integration | Component | edit note', {
-  integration: true
+import Ember from 'ember';
+
+moduleForComponent('edit-note', {
+  // Specify the other units that are required for this test
+  needs: ['component:markdown-to-html']
 });
 
 test('it renders', function(assert) {
-  
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
+  assert.expect(2);
 
-  this.render(hbs`{{edit-note}}`);
+  // Creates the component instance
+  var component = this.subject();
+  assert.equal(component._state, 'preRender');
 
-  assert.equal(this.$().text().trim(), '');
+  // Renders the component to the page
+  this.render();
+  assert.equal(component._state, 'inDOM');
+});
 
-  // Template block usage:" + EOL +
-  this.render(hbs`
-    {{#edit-note}}
-      template block text
-    {{/edit-note}}
-  `);
+test('it saves', function(assert) {
+  var component = this.subject();
+  this.render();
+  var saveTarget = {
+    save: function() {
+      assert.ok(true, 'saved the note');
+    }
+  };
+  Ember.run(() => {
+    component.set('note', saveTarget);
+  });
+  this.$().find('#save').click();
+});
 
-  assert.equal(this.$().text().trim(), 'template block text');
+test('it closes', function(assert) {
+  var component = this.subject();
+  this.render();
+  var closeTarget = {
+    closeAction: function() {
+      assert.ok(true,'closed the window');
+    }
+  };
+  component.set('close','closeAction');
+  component.set('targetObject',closeTarget);
+  this.$().find('#close').click();
 });

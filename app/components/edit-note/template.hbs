@@ -1,7 +1,7 @@
 <div>
   {{input value=note.title}}
-  <button {{action "saveNote"}}>save</button>
-  <button {{action "closeNote"}}>close</button>
+  <button id="save" {{action "saveNote"}}>save</button>
+  <button id="close" {{action "closeNote"}}>close</button>
 </div>
 <div>
   {{textarea rows=10 cols=60 value=note.body}}
