@@ -12,11 +12,11 @@ export default Ember.Route.extend({
         user: this.session.get('user')
       });
       notebook.save().then(() => {
-        console.log('save successful');
+        this.logger.log('save successful');
         this.controller.set('title', null);
         this.refresh();
       }, function() {
-        console.log('save failed');
+        this.logger.log('save failed');
       });
     }
   }
