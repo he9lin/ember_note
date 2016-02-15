@@ -3,8 +3,8 @@
     <label>Register new user:</label>
     {{input value=name class='form-control'}}
   </div>
-  <button class='btn btn-primary' {{action 'addNew'}}>Add</button>
+  <button id='register' class='btn btn-primary' {{action 'addNew'}}>Add</button>
 </form>
-<div class="col-md-12">
+<div id='message' class="col-md-12">
   {{message}}
 </div>
