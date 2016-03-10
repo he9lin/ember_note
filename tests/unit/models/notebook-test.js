@@ -22,6 +22,9 @@ test('it counts notes', function(assert) {
   var note;
   var noteCount = Math.floor(Math.random() * (10 - 1) + 1);
 
+  // Because the work we’re about to do runs asynchronously and has side
+  // effects, the test runner requires that we do this work inside our own run
+  // loop.
   Ember.run(() => {
     for(var i = 0; i < noteCount; i++) {
       note = this.store().createRecord('note');
@@ -29,5 +32,5 @@ test('it counts notes', function(assert) {
     }
   });
 
-  assert.equal(notebook.noteCount(),noteCount);
+  assert.equal(notebook.noteCount(), noteCount);
 });

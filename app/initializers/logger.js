@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export function initialize(registry, application) {
+export function initialize(application) {
   var logger = Ember.Object.extend({
     log: function(message) {
       console.log(message);

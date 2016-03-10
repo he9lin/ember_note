@@ -41,10 +41,10 @@ test('it closes', function(assert) {
   this.render();
   var closeTarget = {
     closeAction: function() {
-      assert.ok(true,'closed the window');
+      assert.ok(true, 'closed the window');
     }
   };
-  component.set('close','closeAction');
-  component.set('targetObject',closeTarget);
+  component.set('close', 'closeAction');
+  component.set('targetObject', closeTarget);
   this.$().find('#close').click();
 });

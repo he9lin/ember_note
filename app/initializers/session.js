@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export function initialize(container, application) {
+export function initialize(application) {
   var session = Ember.Object.extend();
   application.register('session:main', session);
   application.inject('adapter', 'session', 'session:main');
